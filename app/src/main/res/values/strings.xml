@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RandomDragLayoutTest</string>
+    <string name="reset">重置状态</string>
+    <string name="alpha_animation_duration_text" formatted="false">透明: %d毫秒</string>
+    <string name="fling_duration_text" formatted="false">位移: %d毫秒</string>
+    <string name="scroll_availability_ratio_text" formatted="false">惯性: %d％</string>
+    <string name="fish">锦鲤</string>
+    <string name="normal">普通</string>
+</resources>

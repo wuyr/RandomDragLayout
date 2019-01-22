@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEE">
+
+    <TextView
+        android:id="@+id/state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/drag_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/state" />
+
+    <com.wuyr.randomdraglayout.RandomDragLayout
+        android:id="@+id/random_drag_layout_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_margin="8dp"
+            android:onClick="onCardClick"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="4dp"
+            app:cardPreventCornerOverlap="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:text="@string/app_name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+    </com.wuyr.randomdraglayout.RandomDragLayout>
+
+    <com.wuyr.randomdraglayout.RandomDragLayout
+        android:id="@+id/random_drag_layout_fish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/fish"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:onClick="onFishClick"
+            android:src="@drawable/anim_fish" />
+    </com.wuyr.randomdraglayout.RandomDragLayout>
+
+    <TextView
+        android:id="@+id/alpha_animation_duration_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/alpha_animation_duration_text"
+        app:layout_constraintBottom_toTopOf="@+id/alpha_animation_duration"
+        app:layout_constraintEnd_toStartOf="@+id/fling_duration"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/fling_duration_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/fling_duration_text"
+        app:layout_constraintBottom_toTopOf="@+id/alpha_animation_duration"
+        app:layout_constraintEnd_toStartOf="@+id/scroll_availability_ratio"
+        app:layout_constraintStart_toEndOf="@+id/alpha_animation_duration" />
+
+    <TextView
+        android:id="@+id/scroll_availability_ratio_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/scroll_availability_ratio_text"
+        app:layout_constraintBottom_toTopOf="@+id/alpha_animation_duration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fling_duration" />
+
+    <SeekBar
+        android:id="@+id/alpha_animation_duration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:padding="8dp"
+        android:progress="20"
+        app:layout_constraintBottom_toTopOf="@+id/reset"
+        app:layout_constraintEnd_toStartOf="@+id/fling_duration"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SeekBar
+        android:id="@+id/fling_duration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="500"
+        android:padding="8dp"
+        android:progress="80"
+        app:layout_constraintBottom_toTopOf="@+id/reset"
+        app:layout_constraintEnd_toStartOf="@+id/scroll_availability_ratio"
+        app:layout_constraintStart_toEndOf="@+id/alpha_animation_duration" />
+
+    <SeekBar
+        android:id="@+id/scroll_availability_ratio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:padding="8dp"
+        android:progress="80"
+        app:layout_constraintBottom_toTopOf="@+id/reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fling_duration" />
+
+    <TextView
+        android:id="@+id/normal_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/style"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/reset" />
+
+    <Switch
+        android:id="@+id/style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fish_style"
+        app:layout_constraintStart_toEndOf="@+id/normal_style"
+        app:layout_constraintTop_toTopOf="@+id/reset" />
+
+    <TextView
+        android:id="@+id/fish_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/fish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reset"
+        app:layout_constraintStart_toEndOf="@+id/style"
+        app:layout_constraintTop_toTopOf="@+id/reset" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="reset"
+        android:text="@string/reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fish_style" />
+</androidx.constraintlayout.widget.ConstraintLayout>
