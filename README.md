@@ -4,7 +4,7 @@
 ### 使用方式:
 #### 添加依赖：
 ```
-implementation 'com.wuyr:randomdraglayout:1.1.1'
+implementation 'com.wuyr:randomdraglayout:1.2.0'
 ```
 
 ### APIs:
