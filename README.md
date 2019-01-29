@@ -24,7 +24,7 @@ implementation 'com.wuyr:randomdraglayout:1.2.0'
 ## 使用示例:
 **在目标View外面直接套一层RandomDragLayout: (可以作用到任意View上)**
 
-```
+```xml
 <com.wuyr.randomdraglayout.RandomDragLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
